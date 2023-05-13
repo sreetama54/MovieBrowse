@@ -8,8 +8,9 @@ import poster7 from'./poster7.jpg'
 import poster8 from'./poster8.jpg'
 import poster9 from './poster9.jpg'
 
-export let Poster=[poster1,poster2,poster3,poster4,poster5,poster6,poster7,poster8,poster9]
- 
+console.log("Poster-array")
+export let Poster_store={"poster1":poster1,"poster2":poster2,poster3,poster4,poster5,poster6,poster7,poster8,poster9}
+
 // export let poster1;
 // export let poster2;
 // export let poster3;
@@ -19,6 +20,8 @@ export let Poster=[poster1,poster2,poster3,poster4,poster5,poster6,poster7,poste
 // export let poster7;
 // export let poster8;
 // export let poster9;
+
+//poster1.jpg==> Poster["poster1"]
 
 
 
