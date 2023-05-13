@@ -1,15 +1,75 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import './App.css';
 import MovieGrid from './MovieGrid';
 import jsonData from './API/CONTENTLISTINGPAGE-PAGE1.json';
 import jsonData1 from './API/CONTENTLISTINGPAGE-PAGE2.json';
 import jsonData2 from './API/CONTENTLISTINGPAGE-PAGE3.json';
 
-const JSON_ARR=[jsonData,jsonData1,jsonData2]
-const page=1;
+const JSON_ARR = [jsonData, jsonData1, jsonData2];
+
 function App() {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [pgIndex, setPgIndex] = useState(0);
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredContentItems = JSON_ARR[pgIndex].page['content-items'].content.filter(
+    (item) => {
+      return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+    }
+  );
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight =
+        'innerHeight' in window
+          ? window.innerHeight
+          : document.documentElement.offsetHeight;
+      const body = document.body;
+      const html = document.documentElement;
+      const docHeight = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      );
+      const windowBottom = windowHeight + window.pageYOffset;
+      if (windowBottom >= docHeight && pgIndex < JSON_ARR.length - 1) {
+        setPgIndex(pgIndex + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [pgIndex]);
+
   return (
-    <div>
-      <MovieGrid json={JSON_ARR[page]} />
+    <div id="app">
+      <nav className="navbar">
+        <div className="navbar-search">
+          <input
+            type="text"
+            placeholder="Search"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+          <button>Search</button>
+        </div>
+        <button className="navbar-back">Back</button>
+      </nav>
+      <h1 className="content-title">{JSON_ARR[pgIndex].page.title}</h1>
+      <MovieGrid
+        json={{
+          ...JSON_ARR[pgIndex],
+          page: {
+            ...JSON_ARR[pgIndex].page,
+            'content-items': { content: filteredContentItems },
+          },
+        }}
+      />
     </div>
   );
 }

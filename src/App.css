@@ -1,20 +1,11 @@
-.App {
-  background-color: antiquewhite;
+#app {
+  background-color: rgb(12, 12, 11);
 
 }
-
-/* .nav-full-width{
-  flex-basis: 100%;
-  background-color: rgb(238, 199, 152);
+.content-title{
+  color: aliceblue;
 }
 
-.sidebar-in-app
-{
-  background-color: antiquewhite;
-  flex-grow: 1;
+.item-name{
+  color: bisque;
 }
-.content-in-app
-{
-  background-color: rgb(202, 171, 124);
-  flex-grow: 3;
-} */
