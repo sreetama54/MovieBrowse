@@ -1,20 +1,23 @@
 .movie-grid {
     display: flex;
     flex-wrap: wrap;
-    grid: gap 3px;  }
+    grid: gap 3px;  
+  }
   
   .movie-grid-row {
     display: flex;
     flex-basis: 100%;
-    margin-bottom: 10px;
-  }
+    grid-gap: 30px;
+    }
   
   .movie-grid-item {
-    flex-basis: 33%;
-    margin-right: 10px;
+    flex-basis: 34%;
   }
   
   .movie-grid-image {
     max-width: 100%;
+    gap: 3px;
+    width: 118.14px;
+    height: 176.55px;
   }
  

@@ -12,19 +12,20 @@ const MovieGrid = (props) => {
 
   return (
     <>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div className='movie-grid'>
         {rows.map((row, rowIndex) => (
-          <div key={rowIndex} style={{ display: 'flex', flexBasis: '100%', marginBottom: '10px' }}>
+          <div key={rowIndex} className='movie-grid-row' >
             {row.map((item, index) => (
-              <div key={index} style={{ flexBasis: '33%', marginRight: '10px' }}>
+              <div key={index} className='.movie-grid-item'>
                 <img src={
-                  
                   Poster_store[item["poster-image"].split('.')[0]]
-                  
-                  } alt={item.name} style={{ maxWidth: '100%' }} />
+                 //Extracting the image name.
+      
+                  } alt={item.name} className='movie-grid-image' />
                 <h2 className='item-name'>{item.name}</h2>
               </div>
-            ))}
+            ))
+            }
           </div>
         ))}
       </div>

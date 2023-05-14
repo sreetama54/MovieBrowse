@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './Nav-style.css';
 import MovieGrid from './MovieGrid';
 import jsonData from './API/CONTENTLISTINGPAGE-PAGE1.json';
 import jsonData1 from './API/CONTENTLISTINGPAGE-PAGE2.json';
@@ -59,8 +60,6 @@ function App() {
     return () => window.removeEventListener('scroll', handleScrollToTop);
   }, [pgIndex]);
 
-
-
   return (
     <div id="app">
       <nav className="navbar sticky">
@@ -71,7 +70,7 @@ function App() {
         </label>
         <div class="navbar-search">
   <div class="search-box">
-    <input type="text" class="search-txt" placeholder="Search" />
+    <input type="text" class="search-txt" placeholder="Search"  onChange={handleSearch}/>
   </div>
 </div>
         <button className="navbar-back">Back</button>
