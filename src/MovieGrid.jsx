@@ -21,7 +21,7 @@ const MovieGrid = (props) => {
                   Poster_store[item["poster-image"].split('.')[0]]
                  //Extracting the image name.
       
-                  } alt={item.name} className='movie-grid-image' />
+                  } alt={item.name} className='movie-grid-image' loading='lazy' />
                 <h2 className='item-name'>{item.name}</h2>
               </div>
             ))
