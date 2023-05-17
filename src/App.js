@@ -5,7 +5,7 @@ import MovieGrid from './MovieGrid';
 import jsonData from './API/CONTENTLISTINGPAGE-PAGE1.json';
 import jsonData1 from './API/CONTENTLISTINGPAGE-PAGE2.json';
 import jsonData2 from './API/CONTENTLISTINGPAGE-PAGE3.json';
-import {Poster_store} from './Slices/Imagefolder'
+import {Poster_store} from './Assets/Slices/Imagefolder'
 
 const JSON_ARR = [jsonData, jsonData1, jsonData2];
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Poster_store } from './Slices/Imagefolder';
+import { Poster_store } from './Assets/Slices/Imagefolder';
 import './MovieGrid.css';
 
 const MovieGrid = (props) => {
